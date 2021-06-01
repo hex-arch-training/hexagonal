@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("ordermanagement2")
+@RequestMapping("ordermanagement3")
 public class OrderManagementController2 {
 
   @GetMapping("/ping")
