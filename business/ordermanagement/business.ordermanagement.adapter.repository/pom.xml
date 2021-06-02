@@ -14,21 +14,29 @@
 	<name>${project.artifactId}</name>
 	<description>A hexagonal architecture training</description>
 	<dependencies>
+		<!-- frameworks -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
 
+		<!-- hexagonal -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>business.ordermanagement.core.boundary</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- testing -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+    </dependencies>
 </project>

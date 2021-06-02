@@ -1,2 +1,7 @@
+logging:
+  level:
+    root: INFO
+    web: DEBUG
+
 server:
   port: 7777

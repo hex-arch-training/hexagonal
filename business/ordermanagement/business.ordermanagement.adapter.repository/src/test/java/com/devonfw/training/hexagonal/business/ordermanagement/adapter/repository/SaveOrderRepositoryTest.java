@@ -3,10 +3,12 @@ package com.devonfw.training.hexagonal.business.ordermanagement.adapter.reposito
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 
-class testTest {
+public class SaveOrderRepositoryTest {
+
+  @InjectMocks
+  private SaveOrderRepository saveOrderRepository;
 
   @Test
-  public void test() {
-
+  public void saveOrder() {
   }
 }

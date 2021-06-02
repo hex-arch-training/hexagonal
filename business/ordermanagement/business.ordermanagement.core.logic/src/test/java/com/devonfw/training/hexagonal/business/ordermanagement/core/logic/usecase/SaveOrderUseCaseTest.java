@@ -3,13 +3,12 @@ package com.devonfw.training.hexagonal.business.ordermanagement.core.logic.useca
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 
-class SaveOrderTest {
+public class SaveOrderUseCaseTest {
 
   @InjectMocks
-  private SaveOrder saveOrder;
+  private SaveOrderUseCase saveOrderUseCase;
 
   @Test
-  public void test() {
-
+  public void saveOrder() {
   }
 }
