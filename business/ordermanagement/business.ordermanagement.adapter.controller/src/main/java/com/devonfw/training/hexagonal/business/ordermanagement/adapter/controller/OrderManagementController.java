@@ -28,6 +28,6 @@ public class OrderManagementController {
   @GetMapping(value = "/order",
       produces = MediaType.TEXT_EVENT_STREAM_VALUE)
   public Mono<Order> getOrder() {
-    return Mono.justOrEmpty(Order.withId(1L, 2L, 3L, 4L, null));
+    return Mono.justOrEmpty(Order.withId(1L, 1L, 2L, 3L, 4L, null));
   }
 }

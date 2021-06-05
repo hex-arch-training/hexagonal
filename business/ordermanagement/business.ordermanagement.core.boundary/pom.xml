@@ -13,12 +13,16 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>${project.artifactId}</name>
 	<description>A hexagonal architecture training</description>
+	<properties>
+		<java.version>12</java.version>
+	</properties>
 	<dependencies>
 		<!-- frameworks -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
+
 		<!-- hexagonal -->
 		<dependency>
 			<groupId>${project.groupId}</groupId>

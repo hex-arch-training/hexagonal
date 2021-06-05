@@ -2,42 +2,41 @@ package com.devonfw.training.hexagonal.business.ordermanagement.core.domain.enti
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Data
 @NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class OrderLine {
 
-  @Getter
-  private Long orderLineId;
+  private Long id;
 
-  @Getter
+  private Long version;
+
   private Long dishId;
 
-  @Getter
-  private List<Long> extrasIds;
+  private List<OrderExtraIngredient> orderExtraIngredients;
 
-  @Getter
   private Integer amount;
 
-  @Getter
   private String comment;
 
   public static OrderLine withoutId(Long dishId,
-                                    List<Long> extrasIds,
+                                    List<OrderExtraIngredient> orderExtraIngredients,
                                     Integer amount,
                                     String comment) {
-    return new OrderLine(null, dishId, extrasIds, amount, comment);
+    return new OrderLine(null, null, dishId, orderExtraIngredients, amount, comment);
   }
 
-  public static OrderLine withId(Long orderLineId,
+  public static OrderLine withId(Long id,
+                                 Long version,
                                  Long dishId,
-                                 List<Long> extrasIds,
+                                 List<OrderExtraIngredient> orderExtraIngredients,
                                  Integer amount,
                                  String comment) {
-    return new OrderLine(orderLineId, dishId, extrasIds, amount, comment);
+    return new OrderLine(id, version, dishId, orderExtraIngredients, amount, comment);
   }
 }

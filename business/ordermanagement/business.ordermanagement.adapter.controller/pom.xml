@@ -13,6 +13,9 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>${project.artifactId}</name>
     <description>A hexagonal architecture training</description>
+    <properties>
+        <java.version>12</java.version>
+    </properties>
     <dependencies>
         <!-- frameworks -->
         <dependency>

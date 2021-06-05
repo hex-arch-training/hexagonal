@@ -13,7 +13,7 @@
         <module>business/ordermanagement/business.ordermanagement.core.logic</module>
         <module>business/ordermanagement/business.ordermanagement.core.domain</module>
         <module>business/ordermanagement/business.ordermanagement.core.boundary</module>
-        <module>business/ordermanagement/business.ordermanagement.adapter.repository</module>
+        <module>business/ordermanagement/business.ordermanagement.adapter.persistence</module>
         <module>business/ordermanagement/business.ordermanagement.adapter.controller</module>
         <module>orchestration/orchestration.main.completeservice</module>
     </modules>

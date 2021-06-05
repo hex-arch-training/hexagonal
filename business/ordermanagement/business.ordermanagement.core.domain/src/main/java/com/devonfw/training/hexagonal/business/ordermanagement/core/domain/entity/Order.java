@@ -2,42 +2,41 @@ package com.devonfw.training.hexagonal.business.ordermanagement.core.domain.enti
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Data
 @NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Order {
 
-  @Getter
-  private  Long orderId;
+  private Long id;
 
-  @Getter
-  private  Long bookingId;
+  private Long version;
 
-  @Getter
-  private  Long invitedGuestId;
+  private Long bookingId;
 
-  @Getter
-  private  Long hostId;
+  private Long invitedGuestId;
 
-  @Getter
-  private  List<OrderLine> orderLines;
+  private Long hostId;
+
+  private List<OrderLine> orderLines;
 
   public static Order withoutId(Long bookingId,
                                 Long invitedGuestId,
                                 Long hostId,
                                 List<OrderLine> orderLines) {
-    return new Order(null, bookingId, invitedGuestId, hostId, orderLines);
+    return new Order(null, null, bookingId, invitedGuestId, hostId, orderLines);
   }
 
-  public static Order withId(Long orderId,
+  public static Order withId(Long id,
+                             Long version,
                              Long bookingId,
                              Long invitedGuestId,
                              Long hostId,
                              List<OrderLine> orderLines) {
-    return new Order(orderId, bookingId, invitedGuestId, hostId, orderLines);
+    return new Order(id, version, bookingId, invitedGuestId, hostId, orderLines);
   }
 }

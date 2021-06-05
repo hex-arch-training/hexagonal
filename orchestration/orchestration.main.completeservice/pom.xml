@@ -13,13 +13,33 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>${project.artifactId}</name>
     <description>A hexagonal architecture training</description>
+    <properties>
+        <java.version>12</java.version>
+    </properties>
     <dependencies>
         <!-- frameworks -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-data-r2dbc</artifactId>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>io.r2dbc</groupId>-->
+<!--            <artifactId>r2dbc-h2</artifactId>-->
+<!--            <scope>runtime</scope>-->
+<!--        </dependency>-->
         <!-- hexagonal -->
         <dependency>
             <groupId>${project.groupId}</groupId>
@@ -33,7 +53,7 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>business.ordermanagement.adapter.repository</artifactId>
+            <artifactId>business.ordermanagement.adapter.persistence</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
