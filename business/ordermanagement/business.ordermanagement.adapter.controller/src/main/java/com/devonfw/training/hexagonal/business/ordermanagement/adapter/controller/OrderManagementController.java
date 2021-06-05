@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Mono;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,14 +19,14 @@ public class OrderManagementController {
 
   @PostMapping(value = "/order",
       consumes = MediaType.APPLICATION_JSON_VALUE,
-      produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-  public Mono<Order> saveOrder(@RequestBody Order order) {
+      produces = MediaType.APPLICATION_JSON_VALUE)
+  public Order saveOrder(@RequestBody Order order) {
     return saveOrderUseCasePort.saveOrder(order);
   }
 
   @GetMapping(value = "/order",
-      produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-  public Mono<Order> getOrder() {
-    return Mono.justOrEmpty(Order.withId(1L, 1L, 2L, 3L, 4L, null));
+      produces = MediaType.APPLICATION_JSON_VALUE)
+  public Order getOrder() {
+    return Order.withId(1L, 1L, 2L, 3L, 4L, null);
   }
 }

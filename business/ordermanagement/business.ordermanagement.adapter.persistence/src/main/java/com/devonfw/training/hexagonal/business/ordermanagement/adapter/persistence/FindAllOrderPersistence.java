@@ -7,7 +7,6 @@ import com.devonfw.training.hexagonal.business.ordermanagement.core.boundary.req
 import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entity.Order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import reactor.core.publisher.Flux;
 
 import java.util.List;
 
@@ -20,8 +19,7 @@ public class FindAllOrderPersistence implements FindAllOrderPersistencePort {
   private final OrderJpaRepository orderJpaRepository;
 
   @Override
-  public Flux<Order> findAll() {
-    List<Order> orders = mapper.map(orderJpaRepository.findAll());
-    return Flux.fromIterable(orders);
+  public List<Order> findAll() {
+    return mapper.map(orderJpaRepository.findAll());
   }
 }

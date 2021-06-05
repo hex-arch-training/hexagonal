@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
-import reactor.core.publisher.Mono;
-import reactor.test.StepVerifier;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -33,14 +31,12 @@ public class SaveOrderPersistenceTest {
     Order order = OrderTestData.withoutId();
 
     // when
-    Mono<Order> createdOrderMono = saveOrderPersistence.save(order);
+    Order createdOrder = saveOrderPersistence.save(order);
 
     // then
-    assertOrder(order, createdOrderMono.block());
+    assertOrder(order, createdOrder);
 
-    StepVerifier
-        .create(findAllOrderPersistence.findAll())
-        .expectNextCount(1L);
+    assertThat(findAllOrderPersistence.findAll()).hasSize(1);
   }
 
   private void assertOrder(Order order, Order createdOrder) {

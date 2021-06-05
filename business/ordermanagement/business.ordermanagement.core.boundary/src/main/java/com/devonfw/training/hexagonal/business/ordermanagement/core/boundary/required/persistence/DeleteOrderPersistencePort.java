@@ -4,6 +4,6 @@ import reactor.core.publisher.Mono;
 
 public interface DeleteOrderPersistencePort {
 
-  Mono<Void> delete(Long id);
+  void delete(Long id);
 
 }

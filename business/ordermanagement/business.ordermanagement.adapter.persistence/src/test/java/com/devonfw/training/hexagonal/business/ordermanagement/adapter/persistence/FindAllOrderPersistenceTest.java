@@ -3,14 +3,14 @@ package com.devonfw.training.hexagonal.business.ordermanagement.adapter.persiste
 import com.devonfw.training.hexagonal.business.ordermanagement.adapter.persistence.testconfiguration.TestConfiguration;
 import com.devonfw.training.hexagonal.business.ordermanagement.adapter.persistence.testdata.OrderTestData;
 import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entity.Order;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
-import reactor.core.publisher.Flux;
-import reactor.test.StepVerifier;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @SpringBootTest
 @ContextConfiguration(classes = TestConfiguration.class)
@@ -32,12 +32,10 @@ public class FindAllOrderPersistenceTest {
     saveOrderPersistence.save(order2);
 
     // when
-    Flux<Order> orders = findAllOrderPersistence.findAll();
+    List<Order> orders = findAllOrderPersistence.findAll();
 
     // then
-    StepVerifier
-        .create(orders)
-        .expectNextCount(2L);
+    Assertions.assertThat(orders).hasSize(2);
   }
 
 

@@ -15,7 +15,7 @@ public class SaveOrderUseCase implements SaveOrderUseCasePort {
   private final SaveOrderPersistencePort saveOrderPersistencePort;
 
   @Override
-  public Mono<Order> saveOrder(Order order) {
+  public Order saveOrder(Order order) {
     return saveOrderPersistencePort.save(order);
   }
 }
