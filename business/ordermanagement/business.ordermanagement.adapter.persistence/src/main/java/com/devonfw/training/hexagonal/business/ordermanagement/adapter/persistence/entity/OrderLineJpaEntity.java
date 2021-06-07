@@ -30,14 +30,17 @@ public class OrderLineJpaEntity {
   @Version
   private Long version;
 
-  @Column(name = "dish_id")
-  private Long dishId;
+  @Column
+  private String dish;
 
   @OneToMany(mappedBy = "orderLine", cascade = CascadeType.ALL)
   private List<OrderExtraIngredientJpaEntity> orderExtraIngredients;
 
   @Column
   private Integer amount;
+
+  @Column
+  private String comment;
 
   @ManyToOne
   @JoinColumn(name = "order_id")

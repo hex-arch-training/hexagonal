@@ -27,6 +27,6 @@ public class OrderManagementController {
   @GetMapping(value = "/order",
       produces = MediaType.APPLICATION_JSON_VALUE)
   public Order getOrder() {
-    return Order.withId(1L, 1L, 2L, 3L, 4L, null);
+    return Order.withId(1L, 1L, 2L, "John", null);
   }
 }

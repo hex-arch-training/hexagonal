@@ -35,11 +35,27 @@
             <artifactId>mapstruct</artifactId>
             <version>${mapstruct.version}</version>
         </dependency>
+
         <!-- hexagonal -->
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>business.ordermanagement.core.boundary</artifactId>
             <version>${project.version}</version>
+        </dependency>
+
+        <!-- hexagonal testing -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>business.ordermanagement.core.domain.test</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>util.persistence.test</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- testing -->
@@ -51,11 +67,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.projectreactor</groupId>
-            <artifactId>reactor-test</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -89,6 +100,9 @@
                     <compilerArgs>
                         <arg>
                             -Amapstruct.defaultComponentModel=spring
+                        </arg>
+                        <arg>
+                            -Amapstruct.unmappedTargetPolicy=ERROR
                         </arg>
                     </compilerArgs>
                 </configuration>

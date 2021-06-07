@@ -10,6 +10,7 @@
     <description>A hexagonal architecture training</description>
 
     <modules>
+        <!-- hexagonal -->
         <module>business/ordermanagement/business.ordermanagement.core.logic</module>
         <module>business/ordermanagement/business.ordermanagement.core.domain</module>
         <module>business/ordermanagement/business.ordermanagement.core.boundary</module>
@@ -21,6 +22,11 @@
         <module>business/bookingmanagement/business.bookingmanagement.adapter.persistence</module>
         <module>business/bookingmanagement/business.bookingmanagement.adapter.controller</module>
         <module>orchestration/orchestration.main.completeservice</module>
+
+        <!-- hexagonal test -->
+        <module>business/ordermanagement/business.ordermanagement.core.domain.test</module>
+        <module>business/bookingmanagement/business.bookingmanagement.core.domain.test</module>
+        <module>util/util.persistence.test</module>
     </modules>
 
 </project>

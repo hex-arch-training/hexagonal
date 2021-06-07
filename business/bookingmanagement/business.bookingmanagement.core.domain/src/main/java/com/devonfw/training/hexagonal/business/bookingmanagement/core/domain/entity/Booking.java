@@ -38,7 +38,7 @@ public class Booking {
 
   private BookingTable bookingTable;
 
-  private Long userId;
+  private String userName;
 
   private List<InvitedGuest> invitedGuests;
 
@@ -54,7 +54,7 @@ public class Booking {
                                   Boolean canceled,
                                   BookingType bookingType,
                                   BookingTable bookingTable,
-                                  Long userId,
+                                  String userName,
                                   List<InvitedGuest> invitedGuests,
                                   Integer assistants) {
     return new Booking(null,
@@ -69,7 +69,7 @@ public class Booking {
         canceled,
         bookingType,
         bookingTable,
-        userId,
+        userName,
         invitedGuests,
         assistants);
 
@@ -87,7 +87,7 @@ public class Booking {
                                Boolean canceled,
                                BookingType bookingType,
                                BookingTable bookingTable,
-                               Long userId,
+                               String userName,
                                List<InvitedGuest> invitedGuests,
                                Integer assistants) {
     return new Booking(id,
@@ -102,7 +102,7 @@ public class Booking {
         canceled,
         bookingType,
         bookingTable,
-        userId,
+        userName,
         invitedGuests,
         assistants);
   }

@@ -1,23 +1,17 @@
 package com.devonfw.training.hexagonal.business.ordermanagement.adapter.persistence;
 
-import com.devonfw.training.hexagonal.business.ordermanagement.adapter.persistence.testconfiguration.TestConfiguration;
-import com.devonfw.training.hexagonal.business.ordermanagement.adapter.persistence.testdata.OrderTestData;
 import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entity.Order;
 import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entity.OrderLine;
+import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.test.testdata.OrderTestData;
+import com.devonfw.training.hexagonal.util.persistence.test.base.BasePersistenceTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest
-@ContextConfiguration(classes = TestConfiguration.class)
-@Transactional
-public class SaveOrderPersistenceTest {
+public class SaveOrderPersistenceTest extends BasePersistenceTest {
 
   @Autowired
   private SaveOrderPersistence saveOrderPersistence;
@@ -39,8 +33,7 @@ public class SaveOrderPersistenceTest {
     assertThat(createdOrder.getId()).isNotNull();
     assertThat(createdOrder.getVersion()).isNotNull();
     assertThat(createdOrder.getBookingId()).isEqualTo(order.getBookingId());
-    assertThat(createdOrder.getInvitedGuestId()).isEqualTo(order.getInvitedGuestId());
-    assertThat(createdOrder.getHostId()).isEqualTo(order.getHostId());
+    assertThat(createdOrder.getHostName()).isEqualTo(order.getHostName());
     assertOrderLines(order.getOrderLines(), createdOrder.getOrderLines());
   }
 
