@@ -3,7 +3,6 @@ package com.devonfw.training.hexagonal.business.ordermanagement.adapter.persiste
 import com.devonfw.training.hexagonal.business.ordermanagement.adapter.persistence.testconfiguration.TestConfiguration;
 import com.devonfw.training.hexagonal.business.ordermanagement.adapter.persistence.testdata.OrderTestData;
 import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entity.Order;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,6 +10,8 @@ import org.springframework.test.context.ContextConfiguration;
 
 import javax.transaction.Transactional;
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 @ContextConfiguration(classes = TestConfiguration.class)
@@ -35,7 +36,7 @@ public class FindAllOrderPersistenceTest {
     List<Order> orders = findAllOrderPersistence.findAll();
 
     // then
-    Assertions.assertThat(orders).hasSize(2);
+    assertThat(orders).hasSize(2);
   }
 
 

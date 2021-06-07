@@ -22,9 +22,6 @@ public class SaveOrderPersistenceTest {
   @Autowired
   private SaveOrderPersistence saveOrderPersistence;
 
-  @Autowired
-  private FindAllOrderPersistence findAllOrderPersistence;
-
   @Test
   public void save() {
     // given
@@ -35,8 +32,6 @@ public class SaveOrderPersistenceTest {
 
     // then
     assertOrder(order, createdOrder);
-
-    assertThat(findAllOrderPersistence.findAll()).hasSize(1);
   }
 
   private void assertOrder(Order order, Order createdOrder) {
