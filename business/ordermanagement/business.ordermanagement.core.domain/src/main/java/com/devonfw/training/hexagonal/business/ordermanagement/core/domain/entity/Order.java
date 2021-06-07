@@ -18,25 +18,21 @@ public class Order {
 
   private Long bookingId;
 
-  private Long invitedGuestId;
-
-  private Long hostId;
+  private String hostName;
 
   private List<OrderLine> orderLines;
 
   public static Order withoutId(Long bookingId,
-                                Long invitedGuestId,
-                                Long hostId,
+                                String hostName,
                                 List<OrderLine> orderLines) {
-    return new Order(null, null, bookingId, invitedGuestId, hostId, orderLines);
+    return new Order(null, null, bookingId, hostName, orderLines);
   }
 
   public static Order withId(Long id,
                              Long version,
                              Long bookingId,
-                             Long invitedGuestId,
-                             Long hostId,
+                             String hostName,
                              List<OrderLine> orderLines) {
-    return new Order(id, version, bookingId, invitedGuestId, hostId, orderLines);
+    return new Order(id, version, bookingId, hostName, orderLines);
   }
 }

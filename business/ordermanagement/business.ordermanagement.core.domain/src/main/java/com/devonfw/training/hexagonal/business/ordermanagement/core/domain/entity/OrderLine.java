@@ -16,7 +16,7 @@ public class OrderLine {
 
   private Long version;
 
-  private Long dishId;
+  private String dish;
 
   private List<OrderExtraIngredient> orderExtraIngredients;
 
@@ -24,19 +24,19 @@ public class OrderLine {
 
   private String comment;
 
-  public static OrderLine withoutId(Long dishId,
+  public static OrderLine withoutId(String dish,
                                     List<OrderExtraIngredient> orderExtraIngredients,
                                     Integer amount,
                                     String comment) {
-    return new OrderLine(null, null, dishId, orderExtraIngredients, amount, comment);
+    return new OrderLine(null, null, dish, orderExtraIngredients, amount, comment);
   }
 
   public static OrderLine withId(Long id,
                                  Long version,
-                                 Long dishId,
+                                 String dish,
                                  List<OrderExtraIngredient> orderExtraIngredients,
                                  Integer amount,
                                  String comment) {
-    return new OrderLine(id, version, dishId, orderExtraIngredients, amount, comment);
+    return new OrderLine(id, version, dish, orderExtraIngredients, amount, comment);
   }
 }

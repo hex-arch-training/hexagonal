@@ -27,8 +27,8 @@ public class OrderExtraIngredientJpaEntity {
   @Version
   private Long version;
 
-  @Column(name = "ingredient_id")
-  private Long ingredientId;
+  @Column(name = "ingredient")
+  private String ingredient;
 
   @ManyToOne
   @JoinColumn(name = "order_line_id")

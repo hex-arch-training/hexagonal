@@ -61,8 +61,8 @@ public class BookingJpaEntity {
   @OneToOne(mappedBy = "booking", cascade = CascadeType.ALL)
   private BookingTableJpaEntity bookingTable;
 
-  @Column(name = "user_id")
-  private Long userId;
+  @Column(name = "user_name")
+  private String userName;
 
 
   @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)

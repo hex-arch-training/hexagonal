@@ -1,22 +1,16 @@
 package com.devonfw.training.hexagonal.business.ordermanagement.adapter.persistence;
 
-import com.devonfw.training.hexagonal.business.ordermanagement.adapter.persistence.testconfiguration.TestConfiguration;
-import com.devonfw.training.hexagonal.business.ordermanagement.adapter.persistence.testdata.OrderTestData;
 import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entity.Order;
+import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.test.testdata.OrderTestData;
+import com.devonfw.training.hexagonal.util.persistence.test.base.BasePersistenceTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest
-@ContextConfiguration(classes = TestConfiguration.class)
-@Transactional
-public class DeleteOrderPersistenceTest {
+public class DeleteOrderPersistenceTest extends BasePersistenceTest {
 
   @Autowired
   private SaveOrderPersistence saveOrderPersistence;

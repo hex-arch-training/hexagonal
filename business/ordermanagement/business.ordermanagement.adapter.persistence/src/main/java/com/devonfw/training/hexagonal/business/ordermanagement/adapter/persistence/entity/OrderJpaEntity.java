@@ -31,11 +31,8 @@ public class OrderJpaEntity {
   @Column(name = "booking_id")
   private Long bookingId;
 
-  @Column(name = "invited_guest_id")
-  private Long invitedGuestId;
-
-  @Column(name = "host_id")
-  private Long hostId;
+  @Column(name = "host_name")
+  private String hostName;
 
   @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
   private List<OrderLineJpaEntity> orderLines;

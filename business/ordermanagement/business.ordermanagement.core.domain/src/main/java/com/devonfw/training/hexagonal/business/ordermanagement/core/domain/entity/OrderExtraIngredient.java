@@ -16,15 +16,15 @@ public class OrderExtraIngredient {
 
   private Long version;
 
-  private Long ingredientId;
+  private String ingredient;
 
-  public static OrderExtraIngredient withoutId(Long ingredientId) {
-    return new OrderExtraIngredient(null, null, ingredientId);
+  public static OrderExtraIngredient withoutId(String ingredient) {
+    return new OrderExtraIngredient(null, null, ingredient);
   }
 
   public static OrderExtraIngredient withId(Long id,
                                             Long version,
-                                            Long ingredientId) {
-    return new OrderExtraIngredient(id, version, ingredientId);
+                                            String ingredient) {
+    return new OrderExtraIngredient(id, version, ingredient);
   }
 }
