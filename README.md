@@ -10,9 +10,13 @@ Modules are grouped on multiple levels to facilitate working with a lot of code.
 The highest level consists of four groups: business, connector, orchestration,
 and util. They are called subsystems.
 
+![Subsystems](./documentation/images/subsystems.svg)
+
 ## Subsystem _business_
 A business includes modules with business knowledge. 
 They are divided into domains, which consist of two parts: the core and adapters.
+
+![Subsystem business](./documentation/images/subsystem-business.svg)
 
 ### Core modules
 A core implements pure business logic, independent of specific frameworks.
