@@ -15,6 +15,11 @@
         <module>business/ordermanagement/business.ordermanagement.core.boundary</module>
         <module>business/ordermanagement/business.ordermanagement.adapter.persistence</module>
         <module>business/ordermanagement/business.ordermanagement.adapter.controller</module>
+        <module>business/bookingmanagement/business.bookingmanagement.core.logic</module>
+        <module>business/bookingmanagement/business.bookingmanagement.core.domain</module>
+        <module>business/bookingmanagement/business.bookingmanagement.core.boundary</module>
+        <module>business/bookingmanagement/business.bookingmanagement.adapter.persistence</module>
+        <module>business/bookingmanagement/business.bookingmanagement.adapter.controller</module>
         <module>orchestration/orchestration.main.completeservice</module>
     </modules>
 
