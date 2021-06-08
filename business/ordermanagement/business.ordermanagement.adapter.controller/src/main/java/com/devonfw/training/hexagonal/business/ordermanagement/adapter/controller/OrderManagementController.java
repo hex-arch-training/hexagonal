@@ -1,6 +1,6 @@
 package com.devonfw.training.hexagonal.business.ordermanagement.adapter.controller;
 
-import com.devonfw.training.hexagonal.business.ordermanagement.core.boundary.provided.usecase.SaveOrderUseCasePort;
+import com.devonfw.training.hexagonal.business.ordermanagement.core.port.provided.usecase.SaveOrderUseCasePort;
 import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entity.Order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;

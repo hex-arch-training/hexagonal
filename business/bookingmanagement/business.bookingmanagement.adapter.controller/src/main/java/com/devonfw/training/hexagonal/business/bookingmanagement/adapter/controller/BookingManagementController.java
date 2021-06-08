@@ -1,6 +1,6 @@
 package com.devonfw.training.hexagonal.business.bookingmanagement.adapter.controller;
 
-import com.devonfw.training.hexagonal.business.bookingmanagement.core.boundary.provided.usecase.SaveBookingUseCasePort;
+import com.devonfw.training.hexagonal.business.bookingmanagement.core.port.provided.usecase.SaveBookingUseCasePort;
 import com.devonfw.training.hexagonal.business.bookingmanagement.core.domain.entity.Booking;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
