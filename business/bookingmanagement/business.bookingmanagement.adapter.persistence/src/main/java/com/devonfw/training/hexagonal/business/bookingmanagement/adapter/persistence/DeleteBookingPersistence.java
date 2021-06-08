@@ -2,7 +2,7 @@ package com.devonfw.training.hexagonal.business.bookingmanagement.adapter.persis
 
 
 import com.devonfw.training.hexagonal.business.bookingmanagement.adapter.persistence.repository.BookingJpaRepository;
-import com.devonfw.training.hexagonal.business.bookingmanagement.core.boundary.required.persistence.DeleteBookingPersistencePort;
+import com.devonfw.training.hexagonal.business.bookingmanagement.core.port.required.persistence.DeleteBookingPersistencePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

@@ -4,7 +4,7 @@ package com.devonfw.training.hexagonal.business.ordermanagement.adapter.persiste
 import com.devonfw.training.hexagonal.business.ordermanagement.adapter.persistence.entity.OrderJpaEntity;
 import com.devonfw.training.hexagonal.business.ordermanagement.adapter.persistence.mapper.OrderManagementPersistenceMapper;
 import com.devonfw.training.hexagonal.business.ordermanagement.adapter.persistence.repository.OrderJpaRepository;
-import com.devonfw.training.hexagonal.business.ordermanagement.core.boundary.required.persistence.SaveOrderPersistencePort;
+import com.devonfw.training.hexagonal.business.ordermanagement.core.port.required.persistence.SaveOrderPersistencePort;
 import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entity.Order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

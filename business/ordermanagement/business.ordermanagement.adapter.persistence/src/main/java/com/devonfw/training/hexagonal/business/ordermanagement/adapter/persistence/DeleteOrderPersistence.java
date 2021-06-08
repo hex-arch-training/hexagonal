@@ -2,7 +2,7 @@ package com.devonfw.training.hexagonal.business.ordermanagement.adapter.persiste
 
 
 import com.devonfw.training.hexagonal.business.ordermanagement.adapter.persistence.repository.OrderJpaRepository;
-import com.devonfw.training.hexagonal.business.ordermanagement.core.boundary.required.persistence.DeleteOrderPersistencePort;
+import com.devonfw.training.hexagonal.business.ordermanagement.core.port.required.persistence.DeleteOrderPersistencePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

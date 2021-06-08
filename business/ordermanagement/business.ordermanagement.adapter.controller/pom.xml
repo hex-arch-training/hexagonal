@@ -31,7 +31,7 @@
         <!-- hexagonal -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>business.ordermanagement.core.boundary</artifactId>
+            <artifactId>business.ordermanagement.core.port</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
