@@ -27,6 +27,7 @@
         <module>business/ordermanagement/business.ordermanagement.core.domain.test</module>
         <module>business/bookingmanagement/business.bookingmanagement.core.domain.test</module>
         <module>util/util.persistence.test</module>
+        <module>test/test.archunit</module>
     </modules>
 
 </project>
