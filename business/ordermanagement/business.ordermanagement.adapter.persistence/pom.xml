@@ -8,7 +8,7 @@
         <version>2.5.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.devonfw.training</groupId>
+    <groupId>com.devonfw.training.hexagonal</groupId>
     <artifactId>business.ordermanagement.adapter.persistence</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>${project.artifactId}</name>

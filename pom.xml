@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.devonfw.training</groupId>
+    <groupId>com.devonfw.training.hexagonal</groupId>
     <artifactId>hexagonal</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -16,12 +16,14 @@
         <module>business/ordermanagement/business.ordermanagement.core.port</module>
         <module>business/ordermanagement/business.ordermanagement.adapter.persistence</module>
         <module>business/ordermanagement/business.ordermanagement.adapter.controller</module>
+        <module>business/ordermanagement/business.ordermanagement.adapter.service</module>
         <module>business/bookingmanagement/business.bookingmanagement.core.logic</module>
         <module>business/bookingmanagement/business.bookingmanagement.core.domain</module>
         <module>business/bookingmanagement/business.bookingmanagement.core.port</module>
         <module>business/bookingmanagement/business.bookingmanagement.adapter.persistence</module>
         <module>business/bookingmanagement/business.bookingmanagement.adapter.controller</module>
         <module>orchestration/orchestration.main.completeservice</module>
+        <module>util/util.mail</module>
 
         <!-- hexagonal test -->
         <module>business/ordermanagement/business.ordermanagement.core.domain.test</module>

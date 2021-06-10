@@ -1,31 +1,34 @@
 package com.devonfw.training.hexagonal.business.ordermanagement.core.logic.usecase;
 
 
-import com.devonfw.training.hexagonal.business.ordermanagement.core.port.provided.usecase.SaveOrderUseCasePort;
-import com.devonfw.training.hexagonal.business.ordermanagement.core.port.required.persistence.SaveOrderPersistencePort;
 import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entity.Order;
+import com.devonfw.training.hexagonal.business.ordermanagement.core.port.provided.usecase.ConfirmOrderUseCasePort;
+import com.devonfw.training.hexagonal.business.ordermanagement.core.port.required.persistence.SaveOrderPersistencePort;
+import com.devonfw.training.hexagonal.business.ordermanagement.core.port.required.service.SendOrderConfirmationEmailServicePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
-public class SaveOrderUseCase implements SaveOrderUseCasePort {
+public class ConfirmOrderUseCase implements ConfirmOrderUseCasePort {
 
   private final SaveOrderPersistencePort saveOrderPersistencePort;
 
+  private final SendOrderConfirmationEmailServicePort sendOrderConfirmationEmailServicePort;
+
   @Override
-  public Order saveOrder(Order order) {
-    Order validatedOrder = getValidatedOrder(null, order);
+  public Order confirmOrder(Order order) {
+    Order validatedOrder = getValidatedOrder(order);
 
     Order savedOrder = saveOrderPersistencePort.save(validatedOrder);
 
-    sendOrderConfirmationEmail(null, savedOrder);
+    sendOrderConfirmationEmail(savedOrder);
 
     return savedOrder;
   }
 
 
-  private Order getValidatedOrder(String token, Order order) {
+  private Order getValidatedOrder(Order order) {
 
 //    // BOOKING VALIDATION
 //    if (getOrderType(token) == BookingType.COMMON) {
@@ -59,24 +62,22 @@ public class SaveOrderUseCase implements SaveOrderUseCasePort {
 
   }
 
-  private void sendOrderConfirmationEmail(String token, Order order) {
-//
-//    Objects.requireNonNull(token, "token");
-//    Objects.requireNonNull(order, "order");
-//    try {
-//      String emailTo = getBookingOrGuestEmail(token);
-//      StringBuilder mailContent = new StringBuilder();
-//
-//      mailContent.append("MY THAI STAR").append("\n");
-//      mailContent.append("Hi ").append(emailTo).append("\n");
-//      mailContent.append("Your order has been created.").append("\n");
-//      mailContent.append(getContentFormatedWithCost(order)).append("\n");
-//      mailContent.append("\n").append("Link to cancel order: ");
-//      String link = "http://localhost:" + this.clientPort + "/booking/cancelOrder/" + order.getId();
-//      mailContent.append(link);
-//      this.mailService.sendMail(emailTo, "Order confirmation", mailContent.toString());
-//    } catch (Exception e) {
-//      LOG.error("Email not sent. {}", e.getMessage());
-//    }
+  private void sendOrderConfirmationEmail(Order order) {
+
+    String emailTo = getBookingOrGuestEmail(order);
+    StringBuilder mailContent = new StringBuilder();
+    mailContent.append("MY THAI STAR").append(System.lineSeparator())
+        .append("Hi ").append(order.getHostName()).append(System.lineSeparator())
+        .append("Your order has been created.").append(System.lineSeparator())
+        .append(getContentFormattedWithCost(order)).append(System.lineSeparator());
+    sendOrderConfirmationEmailServicePort.sendOrderConfirmationEmail(emailTo, "Order confirmation", mailContent.toString());
+  }
+
+  private String getContentFormattedWithCost(Order order) {
+    return null;
+  }
+
+  private String getBookingOrGuestEmail(Order order) {
+    return null;
   }
 }
