@@ -16,7 +16,7 @@ public class FindAllBookingPersistenceTest extends BasePersistenceTest {
   private SaveBookingPersistence saveBookingPersistence;
 
   @Autowired
-  private FindAllBookingPersistence findAllBookingPersistence;
+  private FindBookingPersistence findAllBookingPersistence;
 
   @Test
   public void findAll() {

@@ -4,8 +4,10 @@ import com.devonfw.training.hexagonal.business.bookingmanagement.core.domain.ent
 
 import java.util.List;
 
-public interface FindAllBookingPersistencePort {
+public interface FindBookingPersistencePort {
 
   List<Booking> findAll();
+
+  Booking findById(Long id);
 
 }

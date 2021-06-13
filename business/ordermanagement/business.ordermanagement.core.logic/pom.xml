@@ -40,6 +40,16 @@
             <artifactId>business.ordermanagement.core.port</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>business.bookingmanagement.core.domain</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>business.bookingmanagement.core.port</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <!-- testing -->
         <dependency>

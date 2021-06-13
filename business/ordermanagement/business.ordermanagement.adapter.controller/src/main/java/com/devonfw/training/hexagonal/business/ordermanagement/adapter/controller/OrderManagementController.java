@@ -1,6 +1,6 @@
 package com.devonfw.training.hexagonal.business.ordermanagement.adapter.controller;
 
-import com.devonfw.training.hexagonal.business.ordermanagement.core.port.provided.usecase.ConfirmOrderUseCasePort;
+import com.devonfw.training.hexagonal.business.ordermanagement.core.port.provided.usecase.SaveOrderUseCasePort;
 import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entity.Order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("ordermanagement")
 public class OrderManagementController {
 
-  private final ConfirmOrderUseCasePort confirmOrderUseCasePort;
+  private final SaveOrderUseCasePort saveOrderUseCasePort;
 
   @PostMapping(value = "/order",
       consumes = MediaType.APPLICATION_JSON_VALUE,
       produces = MediaType.APPLICATION_JSON_VALUE)
   public Order saveOrder(@RequestBody Order order) {
-    return confirmOrderUseCasePort.confirmOrder(order);
+    return saveOrderUseCasePort.saveOrder(order);
   }
 
   @GetMapping(value = "/order",

@@ -16,7 +16,7 @@ public class DeleteBookingPersistenceTest extends BasePersistenceTest {
   private SaveBookingPersistence saveBookingPersistence;
 
   @Autowired
-  private FindAllBookingPersistence findAllBookingPersistence;
+  private FindBookingPersistence findAllBookingPersistence;
 
   @Autowired
   private DeleteBookingPersistence deleteBookingPersistence;

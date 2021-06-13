@@ -1,83 +1,62 @@
 package com.devonfw.training.hexagonal.business.ordermanagement.core.logic.usecase;
 
 
+import com.devonfw.training.hexagonal.business.bookingmanagement.core.domain.entity.Booking;
+import com.devonfw.training.hexagonal.business.bookingmanagement.core.port.provided.exception.NoBookingException;
+import com.devonfw.training.hexagonal.business.bookingmanagement.core.port.provided.usecase.FindBookingUseCasePort;
 import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entity.Order;
-import com.devonfw.training.hexagonal.business.ordermanagement.core.port.provided.usecase.ConfirmOrderUseCasePort;
-import com.devonfw.training.hexagonal.business.ordermanagement.core.port.required.persistence.SaveOrderPersistencePort;
+import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entity.OrderExtraIngredient;
+import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entity.OrderLine;
 import com.devonfw.training.hexagonal.business.ordermanagement.core.port.required.service.SendOrderConfirmationEmailServicePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.stream.Collectors;
+
 @RequiredArgsConstructor
 @Service
-public class ConfirmOrderUseCase implements ConfirmOrderUseCasePort {
-
-  private final SaveOrderPersistencePort saveOrderPersistencePort;
+public class ConfirmOrderUseCase {
 
   private final SendOrderConfirmationEmailServicePort sendOrderConfirmationEmailServicePort;
 
-  @Override
-  public Order confirmOrder(Order order) {
-    Order validatedOrder = getValidatedOrder(order);
+  private final FindBookingUseCasePort findBookingUseCasePort;
 
-    Order savedOrder = saveOrderPersistencePort.save(validatedOrder);
+  public void confirmationOrder(Order order) {
 
-    sendOrderConfirmationEmail(savedOrder);
-
-    return savedOrder;
-  }
-
-
-  private Order getValidatedOrder(Order order) {
-
-//    // BOOKING VALIDATION
-//    if (getOrderType(token) == BookingType.COMMON) {
-//      BookingCto booking = getBookingbyToken(token);
-//      if (booking == null) {
-//        throw new NoBookingException();
-//      }
-//      List<OrderCto> currentOrders = getBookingOrders(booking.getBooking().getId());
-//      if (!currentOrders.isEmpty()) {
-//        throw new OrderAlreadyExistException();
-//      }
-//      orderEntity.setBookingId(booking.getBooking().getId());
-//
-//      // GUEST VALIDATION
-//    } else if (getOrderType(token) == BookingType.INVITED) {
-//
-//      InvitedGuestEto guest = getInvitedGuestByToken(token);
-//      if (guest == null) {
-//        throw new NoInviteException();
-//      }
-//      List<OrderCto> currentGuestOrders = getInvitedGuestOrders(guest.getId());
-//      if (!currentGuestOrders.isEmpty()) {
-//        throw new OrderAlreadyExistException();
-//      }
-//      orderEntity.setBookingId(guest.getBookingId());
-//      orderEntity.setInvitedGuestId(guest.getId());
-//    }
-//
-//    return orderEntity;
-    return order;
-
-  }
-
-  private void sendOrderConfirmationEmail(Order order) {
-
-    String emailTo = getBookingOrGuestEmail(order);
+    String emailTo = getBookingEmail(order);
     StringBuilder mailContent = new StringBuilder();
     mailContent.append("MY THAI STAR").append(System.lineSeparator())
         .append("Hi ").append(order.getHostName()).append(System.lineSeparator())
         .append("Your order has been created.").append(System.lineSeparator())
-        .append(getContentFormattedWithCost(order)).append(System.lineSeparator());
+        .append(System.lineSeparator())
+        .append(getFormattedOrder(order)).append(System.lineSeparator());
     sendOrderConfirmationEmailServicePort.sendOrderConfirmationEmail(emailTo, "Order confirmation", mailContent.toString());
   }
 
-  private String getContentFormattedWithCost(Order order) {
-    return null;
+  private String getFormattedOrder(Order order) {
+
+    StringBuilder content = new StringBuilder();
+    for (OrderLine orderLine : order.getOrderLines()) {
+      content.append(orderLine.getDish())
+          .append(", x").append(orderLine.getAmount())
+          .append(".")
+          .append(getFormattedOrderExtraIngredients(orderLine));
+    }
+    return content.toString();
   }
 
-  private String getBookingOrGuestEmail(Order order) {
-    return null;
+  private String getFormattedOrderExtraIngredients(OrderLine orderLine) {
+    return orderLine.getOrderExtraIngredients().stream()
+        .map(OrderExtraIngredient::getIngredient)
+        .collect(Collectors.joining(",", " Extras: ", "."));
   }
+
+  private String getBookingEmail(Order order) {
+    Booking booking = findBookingUseCasePort.findById(order.getBookingId());
+    if (booking == null) {
+      throw new NoBookingException();
+    }
+    return booking.getEmail();
+  }
+
 }

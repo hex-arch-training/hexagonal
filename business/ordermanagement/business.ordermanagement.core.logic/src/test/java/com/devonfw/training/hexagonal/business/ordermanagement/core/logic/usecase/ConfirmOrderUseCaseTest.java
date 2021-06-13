@@ -6,7 +6,7 @@ import org.mockito.InjectMocks;
 public class ConfirmOrderUseCaseTest {
 
   @InjectMocks
-  private ConfirmOrderUseCase confirmOrderUseCase;
+  private SaveOrderUseCase confirmOrderUseCase;
 
   @Test
   public void saveOrder() {

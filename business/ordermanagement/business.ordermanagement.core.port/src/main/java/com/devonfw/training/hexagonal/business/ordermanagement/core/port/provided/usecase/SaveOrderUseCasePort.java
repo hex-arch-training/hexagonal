@@ -2,8 +2,8 @@ package com.devonfw.training.hexagonal.business.ordermanagement.core.port.provid
 
 import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entity.Order;
 
-public interface ConfirmOrderUseCasePort {
+public interface SaveOrderUseCasePort {
 
-  Order confirmOrder(Order order);
+  Order saveOrder(Order order);
 
 }
