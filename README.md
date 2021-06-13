@@ -1,9 +1,15 @@
-# hexagonal
+<div align="center">
+
+# A hexagonal architecture training
 
 ![Java CI with Maven](https://github.com/hex-arch-training/hexagonal/actions/workflows/maven.yml/badge.svg)
+[![CodeQL](https://github.com/hex-arch-training/hexagonal/workflows/CodeQL/badge.svg)](https://github.com/hex-arch-training/hexagonal/actions?query=workflow%3ACodeQL "Code quality workflow status")
 
 An example implementation of the [My Thai Star](https://devonfw.com/website/pages/docs/master-my-thai-star.asciidoc_technical-design.html)
 application in the hexagonal architecture.
+
+</div>
+
 
 # Modul architecture
 Modules are grouped on multiple levels to facilitate working with a lot of code. 
