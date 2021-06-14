@@ -7,6 +7,8 @@ import com.devonfw.training.hexagonal.business.bookingmanagement.core.port.requi
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class FindBookingUseCase implements FindBookingUseCasePort {
@@ -16,6 +18,11 @@ public class FindBookingUseCase implements FindBookingUseCasePort {
   @Override
   public Booking findById(Long id) {
     return findBookingPersistencePort.findById(id);
+  }
+
+  @Override
+  public List<Booking> findAll() {
+    return findBookingPersistencePort.findAll();
   }
 
 }

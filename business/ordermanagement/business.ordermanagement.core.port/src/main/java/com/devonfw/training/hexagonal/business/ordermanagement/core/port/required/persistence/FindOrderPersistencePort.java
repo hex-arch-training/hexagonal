@@ -4,8 +4,9 @@ import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entit
 
 import java.util.List;
 
-public interface FindAllOrderPersistencePort {
+public interface FindOrderPersistencePort {
 
   List<Order> findAll();
 
+  Order findById(Long id);
 }

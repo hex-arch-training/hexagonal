@@ -2,8 +2,11 @@ package com.devonfw.training.hexagonal.business.ordermanagement.core.port.provid
 
 import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entity.Order;
 
-public interface SaveOrderUseCasePort {
+import java.util.List;
 
-  Order save(Order order);
+public interface FindOrderUseCasePort {
 
+  Order findById(Long id);
+
+  List<Order> findAll();
 }

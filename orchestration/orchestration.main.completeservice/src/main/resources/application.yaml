@@ -6,3 +6,8 @@ logging:
 
 server:
   port: 7777
+
+spring:
+  mail:
+    host: localhost
+    port: 25

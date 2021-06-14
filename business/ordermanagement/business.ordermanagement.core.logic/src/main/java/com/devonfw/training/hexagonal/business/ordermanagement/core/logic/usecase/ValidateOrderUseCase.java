@@ -2,9 +2,9 @@ package com.devonfw.training.hexagonal.business.ordermanagement.core.logic.useca
 
 
 import com.devonfw.training.hexagonal.business.bookingmanagement.core.domain.entity.Booking;
-import com.devonfw.training.hexagonal.business.bookingmanagement.core.port.provided.exception.NoBookingException;
-import com.devonfw.training.hexagonal.business.bookingmanagement.core.port.provided.usecase.FindBookingUseCasePort;
 import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entity.Order;
+import com.devonfw.training.hexagonal.business.ordermanagement.core.port.provided.exception.NoBookingException;
+import com.devonfw.training.hexagonal.business.ordermanagement.core.port.required.usecase.FindBookingUseCasePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

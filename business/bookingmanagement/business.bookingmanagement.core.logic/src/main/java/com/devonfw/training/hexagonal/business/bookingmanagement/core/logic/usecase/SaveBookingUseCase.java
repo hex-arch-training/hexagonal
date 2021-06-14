@@ -14,7 +14,7 @@ public class SaveBookingUseCase implements SaveBookingUseCasePort {
   private final SaveBookingPersistencePort saveBookingPersistencePort;
 
   @Override
-  public Booking saveBooking(Booking booking) {
+  public Booking save(Booking booking) {
     return saveBookingPersistencePort.save(booking);
   }
 }
