@@ -27,7 +27,7 @@ They are divided into domains, which consist of two parts: the core and adapters
 
 ### Core modules
 A core implements pure business logic, independent of specific frameworks.
-It is divided into three parts: domain, logic, and boundary.
+It is divided into three parts: domain, logic, and port.
 
 #### Module _domain_
 A domain contains entities and data types such as enumerations. 
@@ -36,11 +36,11 @@ They can be used by all other modules if the modules don't need more specialized
 #### Module _logic_
 Logic is a module that implements use cases.
 
-#### Module _boundary_
-Boundary contains only interfaces and optionally transport objects necessary for communication between modules,
+#### Module _port_
+Port contains only interfaces and optionally transport objects necessary for communication between modules,
 for example logic and adapters. 
-Boundary belongs to the cora to make it easier to follow the rule that core modules do not depend on any other modules 
-(except util). Boundary includes two kinds of interfaces: provided and required.
+Port belongs to the cora to make it easier to follow the rule that core modules do not depend on any other modules 
+(except util). Port includes two kinds of interfaces: provided and required.
 
 Provided interfaces are implemented by logic that provides access to logic for modules outside the core.
 
@@ -48,6 +48,21 @@ Required interfaces are implemented by adapter modules and are used by core modu
 
 ### Adapter modules
 A adapter modules implement technical aspects, and they are used to linking core modules to specific frameworks.
+
+There are four main types of adapters, but this is not an exhaustive number: 
+persistence, controller, service, connection.
+
+#### Module _persistence_
+This module allows to permanently store ata.
+
+#### Module _controller_
+This module provides the functionality of the domain through various protocols such as REST, WebService, Messaging.
+
+#### Module _service_
+This module allows to call the functionality of other domain through various protocols such as REST, WebService, Messaging.
+
+#### Module _connection_
+This module allows for direct communication between domains when both are included in the save service.
 
 ## Subsystem _connector_
 A connector subsystem has a similar structure as the business subsystem, 
