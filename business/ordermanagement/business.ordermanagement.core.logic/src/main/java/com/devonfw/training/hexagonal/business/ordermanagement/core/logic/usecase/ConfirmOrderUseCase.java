@@ -1,13 +1,13 @@
 package com.devonfw.training.hexagonal.business.ordermanagement.core.logic.usecase;
 
 
-import com.devonfw.training.hexagonal.business.bookingmanagement.core.domain.entity.Booking;
 import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entity.Order;
 import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entity.OrderExtraIngredient;
 import com.devonfw.training.hexagonal.business.ordermanagement.core.domain.entity.OrderLine;
+import com.devonfw.training.hexagonal.business.ordermanagement.core.dto.BookingMail;
 import com.devonfw.training.hexagonal.business.ordermanagement.core.port.provided.exception.NoBookingException;
 import com.devonfw.training.hexagonal.business.ordermanagement.core.port.required.service.SendOrderConfirmationEmailServicePort;
-import com.devonfw.training.hexagonal.business.ordermanagement.core.port.required.usecase.FindBookingUseCasePort;
+import com.devonfw.training.hexagonal.business.ordermanagement.core.port.required.usecase.GetBookingMailUseCasePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,7 @@ public class ConfirmOrderUseCase {
 
   private final SendOrderConfirmationEmailServicePort sendOrderConfirmationEmailServicePort;
 
-  private final FindBookingUseCasePort findBookingUseCasePort;
+  private final GetBookingMailUseCasePort getBookingMailUseCasePort;
 
   public void confirmationOrder(Order order) {
 
@@ -52,11 +52,11 @@ public class ConfirmOrderUseCase {
   }
 
   private String getBookingEmail(Order order) {
-    Booking booking = findBookingUseCasePort.findById(order.getBookingId());
-    if (booking == null) {
+    BookingMail bookingMail = getBookingMailUseCasePort.getBookingMail(order.getBookingId());
+    if (bookingMail == null) {
       throw new NoBookingException();
     }
-    return booking.getEmail();
+    return bookingMail.getMail();
   }
 
 }

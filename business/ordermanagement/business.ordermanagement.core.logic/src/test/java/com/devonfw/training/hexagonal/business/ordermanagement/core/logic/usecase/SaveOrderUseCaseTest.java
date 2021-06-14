@@ -20,9 +20,6 @@ class SaveOrderUseCaseTest {
   private SaveOrderUseCase saveOrderUseCase;
 
   @Mock
-  private ValidateOrderUseCase validateOrder;
-
-  @Mock
   private ConfirmOrderUseCase confirmOrderUseCase;
 
   @Mock
@@ -41,7 +38,6 @@ class SaveOrderUseCaseTest {
     // then
     assertThat(orderSaved).isNotNull();
     assertThat(orderSaved.getBookingId()).isEqualTo(orderWithId.getBookingId());
-    verify(validateOrder).validateOrder(order);
     verify(confirmOrderUseCase).confirmationOrder(order);
   }
 }

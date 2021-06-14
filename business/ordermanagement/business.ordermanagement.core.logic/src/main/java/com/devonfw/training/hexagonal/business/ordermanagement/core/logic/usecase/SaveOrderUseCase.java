@@ -11,16 +11,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class SaveOrderUseCase implements SaveOrderUseCasePort {
 
-  private final ValidateOrderUseCase validateOrder;
-
   private final ConfirmOrderUseCase confirmOrderUseCase;
 
   private final SaveOrderPersistencePort saveOrderPersistencePort;
 
   @Override
   public Order save(Order order) {
-    validateOrder.validateOrder(order);
-
     confirmOrderUseCase.confirmationOrder(order);
 
     return saveOrderPersistencePort.save(order);
