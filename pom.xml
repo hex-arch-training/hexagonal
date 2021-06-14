@@ -17,6 +17,7 @@
         <module>business/ordermanagement/business.ordermanagement.adapter.persistence</module>
         <module>business/ordermanagement/business.ordermanagement.adapter.controller</module>
         <module>business/ordermanagement/business.ordermanagement.adapter.service</module>
+        <module>business/ordermanagement/business.ordermanagement.adapter.connection</module>
         <module>business/bookingmanagement/business.bookingmanagement.core.logic</module>
         <module>business/bookingmanagement/business.bookingmanagement.core.domain</module>
         <module>business/bookingmanagement/business.bookingmanagement.core.port</module>

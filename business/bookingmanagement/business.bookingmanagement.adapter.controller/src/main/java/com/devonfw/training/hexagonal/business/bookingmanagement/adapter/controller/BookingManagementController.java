@@ -1,14 +1,20 @@
 package com.devonfw.training.hexagonal.business.bookingmanagement.adapter.controller;
 
-import com.devonfw.training.hexagonal.business.bookingmanagement.core.port.provided.usecase.SaveBookingUseCasePort;
 import com.devonfw.training.hexagonal.business.bookingmanagement.core.domain.entity.Booking;
+import com.devonfw.training.hexagonal.business.bookingmanagement.core.port.provided.usecase.DeleteBookingUseCasePort;
+import com.devonfw.training.hexagonal.business.bookingmanagement.core.port.provided.usecase.FindBookingUseCasePort;
+import com.devonfw.training.hexagonal.business.bookingmanagement.core.port.provided.usecase.SaveBookingUseCasePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,17 +22,30 @@ import org.springframework.web.bind.annotation.RestController;
 public class BookingManagementController {
 
   private final SaveBookingUseCasePort saveBookingUseCasePort;
+  private final FindBookingUseCasePort findBookingUseCasePort;
+  private final DeleteBookingUseCasePort deleteBookingUseCasePort;
 
-  @PostMapping(value = "/booking",
+  @PostMapping(value = "/Booking",
       consumes = MediaType.APPLICATION_JSON_VALUE,
       produces = MediaType.APPLICATION_JSON_VALUE)
-  public Booking saveBooking(@RequestBody Booking booking) {
-    return saveBookingUseCasePort.saveBooking(booking);
+  public Booking save(@RequestBody Booking booking) {
+    return saveBookingUseCasePort.save(booking);
   }
 
-  @GetMapping(value = "/booking",
+  @GetMapping(value = "/Booking/{id}",
       produces = MediaType.APPLICATION_JSON_VALUE)
-  public Booking getBooking() {
-    return null;
+  public Booking getById(@RequestParam Long id) {
+    return findBookingUseCasePort.findById(id);
+  }
+
+  @GetMapping(value = "/Booking",
+      produces = MediaType.APPLICATION_JSON_VALUE)
+  public List<Booking> getAll() {
+    return findBookingUseCasePort.findAll();
+  }
+
+  @DeleteMapping(value = "/Booking/{id}")
+  public void delete(@RequestParam Long id) {
+    deleteBookingUseCasePort.delete(id);
   }
 }

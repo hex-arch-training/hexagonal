@@ -16,7 +16,7 @@ public class FindAllOrderPersistenceTest extends BasePersistenceTest {
   private SaveOrderPersistence saveOrderPersistence;
 
   @Autowired
-  private FindAllOrderPersistence findAllOrderPersistence;
+  private FindOrderPersistence findAllOrderPersistence;
 
   @Test
   public void findAll() {

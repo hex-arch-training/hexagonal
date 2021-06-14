@@ -18,7 +18,7 @@ public class SaveOrderUseCase implements SaveOrderUseCasePort {
   private final SaveOrderPersistencePort saveOrderPersistencePort;
 
   @Override
-  public Order saveOrder(Order order) {
+  public Order save(Order order) {
     validateOrder.validateOrder(order);
 
     confirmOrderUseCase.confirmationOrder(order);

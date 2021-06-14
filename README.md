@@ -4,6 +4,7 @@
 
 ![Java CI with Maven](https://github.com/hex-arch-training/hexagonal/actions/workflows/maven.yml/badge.svg)
 [![CodeQL](https://github.com/hex-arch-training/hexagonal/workflows/CodeQL/badge.svg)](https://github.com/hex-arch-training/hexagonal/actions?query=workflow%3ACodeQL "Code quality workflow status")
+[![License](https://img.shields.io/badge/License-MIT-blue)](#license "Go to license section")
 
 An example implementation of the [My Thai Star](https://devonfw.com/website/pages/docs/master-my-thai-star.asciidoc_technical-design.html)
 application in the hexagonal architecture.

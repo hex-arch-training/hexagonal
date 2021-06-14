@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.devonfw.training.hexagonal</groupId>
-    <artifactId>business.ordermanagement.core.logic</artifactId>
+    <artifactId>business.ordermanagement.adapter.connection</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>${project.artifactId}</name>
     <description>A hexagonal architecture training</description>
@@ -31,33 +31,13 @@
         <!-- hexagonal -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>business.ordermanagement.core.domain</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
             <artifactId>business.ordermanagement.core.port</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>business.bookingmanagement.core.domain</artifactId>
+            <artifactId>business.bookingmanagement.core.port</artifactId>
             <version>${project.version}</version>
-        </dependency>
-
-        <!-- hexagonal testing -->
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>business.ordermanagement.core.domain.test</artifactId>
-            <version>${project.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- testing -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>
