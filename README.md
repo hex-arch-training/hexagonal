@@ -27,11 +27,15 @@ They are divided into domains, which consist of two parts: the core and adapters
 
 ### Core modules
 A core implements pure business logic, independent of specific frameworks.
-It is divided into three parts: domain, logic, and port.
+It is divided into four parts: domain, logic, port, and dto
 
 #### Module _domain_
-A domain contains entities and data types such as enumerations. 
-They can be used by all other modules if the modules don't need more specialized transport objects.
+A domain contains entities and data types such as enumerations.
+Entities can be used as data transport object if the modules don't need more specialized data transport objects.
+
+#### Module _dto_ (data transport object)
+A dto is a specialized data transport object. They are located in the requesting use case subsystem  
+because they must be created for the specific needs of the use case.
 
 #### Module _logic_
 Logic is a module that implements use cases.
@@ -62,7 +66,7 @@ This module provides the functionality of the domain through various protocols s
 This module allows to call the functionality of other domain through various protocols such as REST, WebService, Messaging.
 
 #### Module _connection_
-This module allows for direct communication between domains when both are included in the save service.
+This module allows for direct communication between domains when both modules are included in the same service.
 
 ## Subsystem _connector_
 A connector subsystem has a similar structure as the business subsystem, 

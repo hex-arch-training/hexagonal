@@ -25,5 +25,10 @@
 			<artifactId>business.bookingmanagement.core.domain</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>business.ordermanagement.core.dto</artifactId>
+			<version>${project.version}</version>
+		</dependency>
     </dependencies>
 </project>

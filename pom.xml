@@ -13,6 +13,7 @@
         <!-- hexagonal -->
         <module>business/ordermanagement/business.ordermanagement.core.logic</module>
         <module>business/ordermanagement/business.ordermanagement.core.domain</module>
+        <module>business/ordermanagement/business.ordermanagement.core.dto</module>
         <module>business/ordermanagement/business.ordermanagement.core.port</module>
         <module>business/ordermanagement/business.ordermanagement.adapter.persistence</module>
         <module>business/ordermanagement/business.ordermanagement.adapter.controller</module>
