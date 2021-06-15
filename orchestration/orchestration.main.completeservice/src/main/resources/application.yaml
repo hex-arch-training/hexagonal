@@ -1,8 +1,11 @@
-debug: true
 logging:
   level:
     root: INFO
     web: DEBUG
+    org:
+      hibernate:
+        type: DEBUG
+        SQL: DEBUG
 
 server:
   port: 7777
@@ -10,4 +13,4 @@ server:
 spring:
   mail:
     host: localhost
-    port: 25
+    port: 30025

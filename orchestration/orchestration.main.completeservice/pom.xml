@@ -82,6 +82,11 @@
             <artifactId>util.mail</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>util.mail.embedded</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

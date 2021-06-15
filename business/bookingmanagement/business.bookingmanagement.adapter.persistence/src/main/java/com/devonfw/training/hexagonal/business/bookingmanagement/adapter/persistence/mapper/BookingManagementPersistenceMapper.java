@@ -6,10 +6,14 @@ import com.devonfw.training.hexagonal.business.bookingmanagement.adapter.persist
 import com.devonfw.training.hexagonal.business.bookingmanagement.core.domain.entity.Booking;
 import com.devonfw.training.hexagonal.business.bookingmanagement.core.domain.entity.BookingTable;
 import com.devonfw.training.hexagonal.business.bookingmanagement.core.domain.entity.InvitedGuest;
+import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 @Mapper
 public interface BookingManagementPersistenceMapper {
@@ -25,4 +29,16 @@ public interface BookingManagementPersistenceMapper {
   Booking map(BookingJpaEntity booking);
 
   List<Booking> map(List<BookingJpaEntity> booking);
+
+  @AfterMapping
+  default void afterMapping(@MappingTarget BookingJpaEntity booking) {
+    Optional.ofNullable(booking.getInvitedGuests())
+        .stream()
+        .flatMap(Collection::stream)
+        .forEach(ig -> ig.setBooking(booking));
+
+    Optional.ofNullable(booking.getBookingTable())
+        .ifPresent(bt -> bt.setBooking(booking));
+  }
+
 }

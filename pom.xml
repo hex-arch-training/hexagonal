@@ -26,6 +26,7 @@
         <module>business/bookingmanagement/business.bookingmanagement.adapter.controller</module>
         <module>orchestration/orchestration.main.completeservice</module>
         <module>util/util.mail</module>
+        <module>util/util.mail.embedded</module>
 
         <!-- hexagonal test -->
         <module>business/ordermanagement/business.ordermanagement.core.domain.test</module>
