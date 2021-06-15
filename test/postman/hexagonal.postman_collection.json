@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "756cb20f-ded6-4ceb-b23d-163cb38e53d7",
+		"name": "hexagonal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "save booking",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const bookingNo = \"0ZRH005517\";",
+							"const equipmentNo = \"MRSU3717096\";",
+							"pm.environment.set(\"bookingNo\", bookingNo);",
+							"pm.environment.set(\"equipmentNo\", equipmentNo);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"dinner\",\"email\":\"bos@cap.pl\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7777/bookingmanagement/booking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"bookingmanagement",
+						"booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find all booking",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const bookingNo = \"0ZRH005517\";",
+							"const equipmentNo = \"MRSU3717096\";",
+							"pm.environment.set(\"bookingNo\", bookingNo);",
+							"pm.environment.set(\"equipmentNo\", equipmentNo);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"dinner\",\"email\":\"bos@cap.pl\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7777/bookingmanagement/booking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"bookingmanagement",
+						"booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save order",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const bookingNo = \"0ZRH005517\";",
+							"const equipmentNo = \"MRSU3717096\";",
+							"pm.environment.set(\"bookingNo\", bookingNo);",
+							"pm.environment.set(\"equipmentNo\", equipmentNo);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bookingId\": 1,\r\n    \"hostName\": \"The Boss\",\r\n    \"orderLines\": [\r\n        {\r\n            \"dish\": \"Pizza\",\r\n            \"orderExtraIngredients\": [\r\n                {\r\n                    \"ingredient\": \"olives\"\r\n                }\r\n            ],\r\n            \"amount\": 1,\r\n            \"comment\": \"Thin-Crust Dough\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7777/ordermanagement/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"ordermanagement",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find order",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const bookingNo = \"0ZRH005517\";",
+							"const equipmentNo = \"MRSU3717096\";",
+							"pm.environment.set(\"bookingNo\", bookingNo);",
+							"pm.environment.set(\"equipmentNo\", equipmentNo);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"version\": 0,\r\n    \"bookingId\": 1,\r\n    \"hostName\": \"The Boss\",\r\n    \"orderLines\": [\r\n        {\r\n            \"id\": 3,\r\n            \"version\": 0,\r\n            \"dish\": \"Pizza\",\r\n            \"orderExtraIngredients\": [\r\n                {\r\n                    \"id\": 4,\r\n                    \"version\": 0,\r\n                    \"ingredient\": \"olives\"\r\n                }\r\n            ],\r\n            \"amount\": 1,\r\n            \"comment\": \"Thin-Crust Dough\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7777/ordermanagement/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"ordermanagement",
+						"order"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
